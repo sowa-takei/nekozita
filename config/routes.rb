@@ -4,13 +4,13 @@ Rails.application.routes.draw do
 
   get 'admin' => "admin/homes#top", as: "admin"
 
-  #namespace :admin do
-   #resources :products, only: [:new, :index, :create, :show, :edit, :update]
+  namespace :admin do
+   resources :products, only: [:new, :index, :create, :show, :edit, :update]
    #resources :genres, only: [:index, :create, :edit, :update]
    #resources :orders, only: [:show, :update]
    #resources :order_details, only: [:update]
    #resources :customers, only: [:index, :show, :edit, :update]
-  #end
+  end
 
  #scope module: :public do
   #get 'homes/about' => "homes#about"
