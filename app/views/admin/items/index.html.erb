@@ -14,20 +14,19 @@
    <th>ステータス</th>
   </tr>
  </thead>
- <tbody>
  <% @items.each do |item| %>
  <tr>
   <td><%= item.id %></td>
-  <td><%= link_to  admin_items_path(item) do %>
+  <td><%= link_to  admin_item_path(item) do %>
       <%= item.name %><% end %>
   </td>
   <td><%= item.price %></td>
-  <td><%#= item.genre.name %></td>
+  <td><%= item.genre.name %></td>
   <td><label for="item_is_activ"></label>
   <% if item.is_active == true %>
   <span style="color: green">販売中</span>
   <% else %>
-  <span style="color: gray">販売停止中</span>
+  <span style="color: gray">在庫切れ</span>
   <% end %>
   </td>
  </tr>
