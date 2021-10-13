@@ -34,6 +34,16 @@
         </td>
       </tr>
       <tr>
+        <th>郵便番号(ハイフンなし)</th>
+        <td><%= f.text_field :postal_code,placeholder:"0000000" %>
+            例: 0000000
+        </td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= f.text_field :address %></td>
+      </tr>
+      <tr>
         <th>電話番号(ハイフンなし)</th>
         <td><%= f.text_field :telephone_number %>
             例: 00000000000
@@ -47,31 +57,9 @@
             <% end %></br>
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
             例: ※確認のためパスワードを再入力してください。./
-            
         </td>
-      </tr>
     </table>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
+    <%= f.submit "入力内容を確認する",class:"btn btn-secondary" %>
     <% end %>
 
   </div>
