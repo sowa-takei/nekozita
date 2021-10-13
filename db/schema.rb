@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_135614) do
     t.string "address"
     t.string "telephone_number"
     t.boolean "is_active", default: true
+    t.boolean "gender", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
