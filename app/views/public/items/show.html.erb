@@ -1,1 +1,28 @@
-aaa
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <table>
+        <tr>
+         <th>BRAND</th>
+        </tr>
+        <tr>
+          <td>nekozita</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-4">
+      <%= attachment_image_tag @item, :image, :fill,300,300 %>
+    </div>
+    <div class="col-6">
+      <%#= form_with model: @item, local: true do |f| %>
+     <%= @item.name %></br>
+      <%= @item.introduction %></br>
+      ￥<%= @item. with_tax_price %>(税込)
+      <%= form_with model: @item, local: true do |f| %>
+      <%= f.select :amount,[1...5] %>
+      <%= f.submit "カートに入れる",class:"btn btn-success" %>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>
