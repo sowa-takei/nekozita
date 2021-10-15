@@ -28,10 +28,10 @@ Rails.application.routes.draw do
   #resources :orders, only: [:new, :index, :show, :create]
   #resource :customers, only: [:show, :edit, :update]
   #resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-  #resources :cart_items, only: [:index, :update, :destroy, :create] do
-    #member do
-      #delete :delete
-    #end
+  resources :cart_items, only: [:index, :update, :destroy, :create] do
+    member do
+      delete :delete
+    end
   end
   devise_for :customers,controllers: {
   sessions: 'customers/sessions',
@@ -40,6 +40,6 @@ Rails.application.routes.draw do
   }
 
 
-
- end
+end
+end
 

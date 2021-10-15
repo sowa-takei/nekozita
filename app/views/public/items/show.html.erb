@@ -11,14 +11,17 @@
       </table>
     </div>
     <div class="col-4">
+       <%= form_with model: @cart_item,url:cart_items_path(@cart_item), local: true do |f| %>
       <%= attachment_image_tag @item, :image, :fill,300,300 %>
     </div>
     <div class="col-6">
       <%#= form_with model: @item, local: true do |f| %>
-     <%= @item.name %></br>
-      <%= @item.introduction %></br>
-      ￥<%= @item. with_tax_price %>(税込)
-      <%= form_with model: @item, local: true do |f| %>
+
+       <%= @item.name %></br>
+       <%= f.hidden_field :item_id, :value => @item.id %>
+       <%= @item.introduction %></br>
+      ￥<%= @item. with_tax_price %>(税込)</br>
+
       <%= f.select :amount, *[1..10],include_blank: "個数選択" %>
       <%= f.submit "カートに入れる",class:"btn btn-success" %>
       <% end %>
