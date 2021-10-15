@@ -18,6 +18,11 @@
                 <% end %>
             </td>
             <td><%= customer.email %></td>
+            <td><% if customer.is_active == true %>
+                <span style="color: green">有効</span>
+                <% else %>
+                <span style="color: red">退会</span>
+                <% end %></td>
           </tr>
           <% end %>
         </thead>
