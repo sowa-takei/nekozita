@@ -13,7 +13,7 @@
   </tr>
   <tr>
     <th>商品説明</th>
-    <td><%= f.text_area :introductiion,:placeholder => "ここに説明文を記述します" %></td>
+    <td><%= f.text_area :introduction,:placeholder => "ここに説明文を記述します" %></td>
   </tr>
   <tr>
     <th>ジャンル</th>
@@ -31,8 +31,6 @@
         <%= f.label :is_active, '在庫切れ', value: false %>
     </td>
   </tr>
-
-
  </tbody>
 </table>
 <%= f.submit "新規登録",class:"btn btn-success" %>
