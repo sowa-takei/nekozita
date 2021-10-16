@@ -19,13 +19,13 @@ Rails.application.routes.draw do
 
  scope module: :public do
   get 'homes/men' => "homes#men"
-  #post 'orders/verification' => "orders#verification"
+  post 'orders/verification' => "orders#verification"
   #get 'orders/verification' => "orders#verification"
-  #get 'orders/completion' => "orders#completion"
+  get 'orders/completion' => "orders#completion"
   #get 'customers/withdrawal' => "customers#withdrawal"
   #put 'customers/proces' => "customers#proces"
   resources :items, only: [:index, :show]
-  #resources :orders, only: [:new, :index, :show, :create]
+  resources :orders, only: [:new, :index, :show, :create]
   #resource :customers, only: [:show, :edit, :update]
   #resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   resources :cart_items, only: [:index, :update, :destroy, :create] do
