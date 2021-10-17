@@ -4,6 +4,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def verification
+    @cart_items = current_customer.cart_items
   end
 
   def completion
