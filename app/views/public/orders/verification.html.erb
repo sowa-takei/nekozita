@@ -14,7 +14,7 @@
         <% @sum = 0 %>
         <% @cart_items.each do |cart_item| %>
           <tr>
-            <td><%= attachment_image_tag cart_item.item, :image, :fill,200,100 %>
+            <td><%= attachment_image_tag cart_item.item, :image, :fill,200,80 %>
                 <%= cart_item.item.name %>
             </td>
             <td><%= cart_item.item.with_tax_price %></td>
@@ -22,8 +22,8 @@
             <td><%= cart_item.subtotal %></td>
             <% @sum += cart_item.subtotal %>
           </tr>
-           <% end %>
-        </table>
+        <% end %>
+      </table>
     </div>
     <div class="col-4">
        <table class="table table-bordered">
@@ -42,7 +42,6 @@
            </tr>
          </thead>
        </table>
-
     </div>
   </div>
   <div class="row">
@@ -50,11 +49,11 @@
       <table>
         <tr>
           <th>支払方法</th>
-          <td><%= @order.payment_method_i18n %></td>
+          <th><%= @order.payment_method_i18n %></th>
         </tr>
         <tr>
           <th>お届け先</th>
-          <th><%= @order.postal_code %>
+          <th>〒<%= @order.postal_code %>
               <%= @order.address %>
           </th>
         </tr>
@@ -80,4 +79,8 @@
    <%= f.hidden_field :name, :value => @order.name %>
    <!--請求金額-->
    <%= f.hidden_field :total_payment, :value => @sum + shipping_cost %>
+   <div class="order">
+     <%= f.submit "注文を確定する",class:"btn btn-success" %>
+   </div>
+   
 <% end %>

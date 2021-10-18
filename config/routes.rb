@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :orders, only: [:new, :index, :show, :create]
   #resource :customers, only: [:show, :edit, :update]
-  #resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+  resources :address, only: [:index, :edit, :create, :update, :destroy]
   resources :cart_items, only: [:index, :update, :destroy, :create] do
     member do
       delete :delete
