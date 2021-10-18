@@ -73,3 +73,5 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem 'pry-byebug', group: :development
+
+gem "enum_help"

@@ -11,6 +11,7 @@
             <th>小計</th>
           </tr>
         </thead>
+        <% @sum = 0 %>
         <% @cart_items.each do |cart_item| %>
           <tr>
             <td><%= attachment_image_tag cart_item.item, :image, :fill,200,100 %>
@@ -19,7 +20,9 @@
             <td><%= cart_item.item.with_tax_price %></td>
             <td><%= cart_item.amount %></td>
             <td><%= cart_item.subtotal %></td>
+            <% @sum += cart_item.subtotal %>
           </tr>
+           <% end %>
         </table>
     </div>
     <div class="col-4">
@@ -29,9 +32,52 @@
              <th>送料</th>
              <td><%= shipping_cost %></td>
            </tr>
+           <tr>
+             <th>商品合計</th>
+             <td><%= @sum %></td>
+           </tr>
+           <tr>
+             <th>請求金額</th>
+             <td><%= @sum + shipping_cost %></td>
+           </tr>
          </thead>
        </table>
-       <% end %>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <table>
+        <tr>
+          <th>支払方法</th>
+          <td><%= @order.payment_method_i18n %></td>
+        </tr>
+        <tr>
+          <th>お届け先</th>
+          <th><%= @order.postal_code %>
+              <%= @order.address %>
+          </th>
+        </tr>
+        <tr>
+          <th></th>
+          <th><%= @order.name %></th>
+          </tr>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
+<%= form_with model: @order,url:orders_path, local: true do |f| %>
+   <!--支払方法-->
+   <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+   <!--送料-->
+   <%= f.hidden_field :shipping_cost, :value => shipping_cost %>
+   <!--郵便番号-->
+   <%= f.hidden_field :postal_code, :value => @order.postal_code %>
+   <!--住所-->
+   <%= f.hidden_field :address, :value => @order.address %>
+   <!--名前-->
+   <%= f.hidden_field :name, :value => @order.name %>
+   <!--請求金額-->
+   <%= f.hidden_field :total_payment, :value => @sum + shipping_cost %>
+<% end %>
