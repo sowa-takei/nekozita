@@ -22,11 +22,11 @@ Rails.application.routes.draw do
   post 'orders/verification' => "orders#verification"
   #get 'orders/verification' => "orders#verification"
   get 'orders/completion' => "orders#completion"
-  #get 'customers/withdrawal' => "customers#withdrawal"
-  #put 'customers/proces' => "customers#proces"
+  get 'customers/withdrawal' => "customers#withdrawal"
+  put 'customers/proces' => "customers#proces"
   resources :items, only: [:index, :show]
   resources :orders, only: [:new, :index, :show, :create]
-  #resource :customers, only: [:show, :edit, :update]
+  resource :customers, only: [:show, :edit, :update]
   resources :address, only: [:index, :edit, :create, :update, :destroy]
   resources :cart_items, only: [:index, :update, :destroy, :create] do
     member do
