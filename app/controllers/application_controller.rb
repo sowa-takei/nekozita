@@ -16,6 +16,18 @@ class ApplicationController < ActionController::Base
 
    protected
 
+   def reject_customer
+    @customer = Customer.find_by(email: params[:user][:email].downcase)
+    if @customer
+      if (@customer.valid_password?(params[:customer][:password]) && (@customer.active_for_authentication? == true))
+        flash[:error] = "退会済みです。"
+        redirect_to new_customer_session_path
+      end
+    else
+      flash[:error] = "必須項目を入力してください。"
+    end
+   end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :postal_code, :address, :last_name_kana,  :first_name_kana, :telephone_number])
   end

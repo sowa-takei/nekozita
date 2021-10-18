@@ -14,9 +14,17 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdrawal
+    @customer = current_customer
   end
 
   def proces
+    @customer = current_customer
+    #is_deletedカラムにフラグを立てる(defaultはtrue)
+    @user.update(is_active: false)
+    #ログアウトさせる
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   private
