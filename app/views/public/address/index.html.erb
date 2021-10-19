@@ -1,0 +1,11 @@
+<div class="container">
+  <h4>配送先登録/一覧</h4>
+  <div class="row">
+    <%= form_with model: @address, url:address_index,local: true do |f| %>
+    <table>
+      <th>郵便番号(ハイフンなし)</th>
+      <td><%= f.text_field :postal_code %></td>
+    </table>
+    <% end %>
+  </div>
+</div>
