@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
    @order = Order.new
+   @addresses = Address.all
   end
 
   def verification
@@ -52,7 +53,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @orders = current_customer.orders
+    @orders = @order.order_details
   end
 
   private

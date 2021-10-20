@@ -4,7 +4,7 @@
    <nav class="navbar navbar-expand-lg ">
     <div class="container">
       <!--<a class="navbar-brand" href="/"><span>Nekozita</span></a>-->
-      <%= link_to "Nekozita",admin_path,class:"btn btn-dark" %>
+      <%= link_to "Nekozita",root_path,class:"btn btn-dark" %>
       <%= image_tag 'nekozita.jpg',size: '100x50' %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,6 +23,9 @@
       </li>
       <li>
         <%= link_to "顧客一覧です", admin_customers_path,class:"btn btn-primary" %>
+      </li>
+      <li>
+        <%= link_to "注文履歴一覧", admin_path,class:"btn btn-primary" %>
       </li>
       <li>
         <%= link_to "ジャンル一覧", admin_genres_path,class:"btn btn-outline-primary" %>

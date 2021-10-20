@@ -11,7 +11,8 @@
       〒<%= current_customer.postal_code %>
       <%= current_customer.address %></br>
       <%= current_customer.last_name + current_customer.first_name %></br>
-      <%= radio_button_tag :delivery, 1 %>>登録済住所から選択</br>
+      <%= radio_button_tag :delivery, 1 %>登録済住所から選択</br>
+      <%= collection_select(:address, :id, @addresses, :id, :address ) %></br>
       <%= radio_button_tag :delivery, 3 %>新しいお届け先</br>
       <table>
         <tr>

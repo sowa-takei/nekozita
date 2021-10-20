@@ -1,1 +1,30 @@
-tesuto
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <h4>注文履歴一覧</h4>
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+          <% @orders.each do |order| %>
+          <% @sum = 0 %>
+          <tr>
+            <td><%= order.created_at.strftime("%Y年%m月%d日%H時%M分") %></td>
+            <td><%= order.name %></td>
+            <td><% order.order_details.each do |order_detail| %>
+                <% @sum += order_detail.amount %>
+                <% end %>
+                <%= @sum %>
+                <% @sum = 0 %>
+            </td>
+          </tr>
+          <% end %>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
