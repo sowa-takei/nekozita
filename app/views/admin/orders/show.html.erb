@@ -28,7 +28,7 @@
               <%= f.submit "更新",class:"btn btn-success" %>
           </td>
         </tr>
-        <% end %>
+      <% end %>
       </table>
     </div>
   </div>
@@ -43,13 +43,19 @@
             <th>小計</th>
             <th>制作ステータス</th>
           </tr>
-          <% @orders.each do |order| %>
+          <% @order.order_details.each do |order_detail| %>
           <tr>
-            <td><%= order.item.name %></td>
-            <td><%= order.tax_price %></td>
-            <td><%= order.amount %></td>
-            <td><%= order.tax_price * order.amount %></td>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.tax_price %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.tax_price * order_detail.amount %></td>
+            <%= form_with model:order_detail,url: admin_order_path,local: true do |f| %>
+            <td><%#= f.select :making_status, Order_detail.making_statuses.keys %>
+                <%= f.select :making_status, Order_details.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
+            </td>
+            <% end %>
           </tr>
+
           <% end %>
         </thead>
       </table>
