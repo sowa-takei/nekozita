@@ -7,3 +7,10 @@ ja: # 日本語の設定を行う
 
 
 
+  order:
+    order.statuses.keys.to_a:
+      waiting_for_payment: '入金待ち'
+      payment_confirmation: "入金確認"
+      production: "製作中"
+      ready_to_ship: "発送準備中"
+      sent: "発送済み"

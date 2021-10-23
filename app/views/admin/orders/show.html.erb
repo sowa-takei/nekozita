@@ -24,8 +24,9 @@
         <%= form_with model: @order,url: admin_order_path, local: true do |f| %>
         <tr>
           <th>注文ステータス</th>
-          <td><%#= f.select :status, Order.statuses.keys %>
-              <%= f.select :status, options_for_select([['入金待ち', "waiting_for_payment"], ['入金確認', "payment_confirmation"], ['製作中', "production"], ['発送準備中', "ready_to_ship"],['発送済み',"sent"]], { :selected => @order.status }) %>
+          <td><%= f.select :status, Order.statuses.keys.to_a %>
+
+              <%#= f.select :status, options_for_select([['入金待ち', "waiting_for_payment"], ['入金確認', "payment_confirmation"], ['製作中', "production"], ['発送準備中', "ready_to_ship"],['発送済み',"sent"]], { :selected => @order.status }) %>
               <%= f.submit "更新",class:"btn btn-success" %>
           </td>
         </tr>
@@ -52,15 +53,16 @@
             <td><%= order_detail.amount %></td>
             <td><%= order_detail.tax_price * order_detail.amount %></td>
             <% @sum += order_detail.tax_price * order_detail.amount %>
-            <%= form_with model:order_detail,url: admin_order_path,local: true do |f| %>
+            <%= form_with model:order_detail,url:admin_order_detail_path(order_detail),local: true do |f| %>
             <td><%#= f.select :making_status, Order_detail.making_status.keys %>
-                <%= f.select :making_status, options_for_select([['制作不可', "cannot_be_manufactured"], ['制作待ち', "waiting_for_production"], ['製作中', "production"], ['製作完了', "production_completed"]], { :selected => order_detail.making_status }) %>
+            <%# binding.pry%>
+                <%#= f.select :making_status, options_for_select([['制作不可', 0], ['制作待ち', 1], ['製作中', "production"], ['製作完了', "production_completed"]], { :selected => order_detail.making_status }) %>
 
-                <%#= f.select :making_status, Order_detail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
+                <%= f.select :making_status, OrderDetail.making_statuses.keys.to_a %>
+                <%= f.submit "更新",class:"btn btn-success" %>
             </td>
             <% end %>
           </tr>
-
           <% end %>
         </thead>
       </table>
