@@ -77,3 +77,5 @@ gem 'pry-byebug', group: :development
 
 gem "enum_help"
 gem 'rails-i18n'
+
+gem 'ransack'

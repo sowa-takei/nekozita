@@ -14,3 +14,26 @@
  *= require_self
  */
 @import "bootstrap";
+
+#box{
+  height: 512px;
+}
+.image1 {
+  background-image: url(Off-White_L.jpg);
+}
+.image2 {
+  background-image: url(HERON-PRESTON.jpg);
+}
+.image3 {
+  background-image: url(WE11DONE.jpg);
+}
+.image4 {
+  background-image: url(balenciaga.jpg);
+}
+.image5 {
+  background-image: url(DITA.jpg);
+}
+
+div.search {
+  text-align: right;
+}

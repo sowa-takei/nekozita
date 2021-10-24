@@ -11,12 +11,21 @@
       </table>
     </div>
     <div class="col-10">
-      <%= image_tag 'Off-White_L.jpg',size: '800x300' %>
+      <div id="box">
+  　　 　<div id="images">
+        <div class="image1"></div>
+        <div class="image2"></div>
+        <div class="image3"></div>
+        <div class="image4"></div>
+        <div class="image5"></div>
+       </div>
+      </div>
     　<h4>新着商品</h4>
     　<div class="row mx-auto mt-3">
     <% @items.last(4).each do |item| %>
+    <%# @search_items.last(4) each do |item| %>
      <div class="mx-auto">
-       
+
       <%= attachment_image_tag item, :image, :fill,100,100 %></br>
        <div class="row mt-3">
         <%= item.name %></br>
@@ -24,7 +33,7 @@
        <div class="row mt-1">
         ￥<%= item.price %>
        </div>
-       
+
      </div>
     <% end %>
     <%= link_to "全ての商品を見る",items_path %>

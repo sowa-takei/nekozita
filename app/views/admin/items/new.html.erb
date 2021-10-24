@@ -1,37 +1,42 @@
-<h4>商品新規登録</h4>
-<%= form_with model: @item,url:admin_items_path(@item),local:true do |f| %>
-<table>
-  <tbody>
-  <tr>
-    <th><label>商品画像</label></th>
-    <td><%= f.attachment_field :image %></td>
-  </tr>
-  <tr>
-  <tr>
-    <th><label>商品名</label></th>
-    <td><%= f.text_field :name,:placeholder => "商品名" %></td>
-  </tr>
-  <tr>
-    <th>商品説明</th>
-    <td><%= f.text_area :introduction,:placeholder => "ここに説明文を記述します" %></td>
-  </tr>
-  <tr>
-    <th>ジャンル</th>
-    <td><%= f.collection_select(:genre_id, @genres, :id, :name,prompt: "--選択してください--")%></td>
-  </tr>
-  <tr>
-    <th>税抜価格</th>
-    <td><%= f.text_field :price,:placeholder => "1000" %>円</td>
-  </tr>
-  <tr>
-    <th>販売ステータス</th>
-    <td><%= f.radio_button :is_active, 'true' %>
-        <%= f.label :is_active, '販売中', value: true %>
-        <%= f.radio_button :is_active, 'false' %>
-        <%= f.label :is_active, '在庫切れ', value: false %>
-    </td>
-  </tr>
- </tbody>
-</table>
-<%= f.submit "新規登録",class:"btn btn-success" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <h4>商品新規登録</h4>
+      <%= form_with model: @item,url:admin_items_path(@item),local:true do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <th>商品画像</th>
+          <td><%= f.attachment_field :image %></td>
+        </tr>
+        <tr>
+        <tr>
+          <th>商品名</th>
+          <td><%= f.text_field :name,:size=>"40",:placeholder => "商品名" %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td><%= f.text_area :introduction,:size=>"45x5",:placeholder => "ここに説明文を記述します" %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= f.collection_select(:genre_id, @genres, :id, :name,prompt: "--選択してください--")%></td>
+        </tr>
+        <tr>
+          <th>税抜価格</th>
+          <td><%= f.text_field :price,:placeholder => "1000" %>円</td>
+        </tr>
+        <tr>
+          <th>販売ステータス</th>
+          <td><%= f.radio_button :is_active, 'true' %>
+              <%= f.label :is_active, '販売中', value: true %>
+              <%= f.radio_button :is_active, 'false' %>
+              <%= f.label :is_active, '在庫切れ', value: false %>
+          </td>
+        </tr>
+      </table>
+      <%= f.submit "新規登録",class:"btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
