@@ -29,19 +29,33 @@
     </div>
   </div>
   <div class="row">
+    <% if @item.favorited_by?(current_customer) %>
+    <p>
+      <%= link_to favorites_path(@item), method: :delete do %>
+        ♥<%= @item.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to favorites_path(@item), method: :post do %>
+        ♡<%= @item.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+  </div>
+  <div class="row">
   <div>
-    <p>コメント件数：<%= @post_image.post_comments.count %></p>
-    <% @post_image.post_comments.each do |post_comment| %>
-      <p><%= image_tag('sample-author1.jpg') %></p>
-      <%= post_comment.user.name %>
-      <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-    <% end %>
+    <p>コメント件数：<%= @item.post_comments.count %></p>
+       <<%= @post_comment.comment %>
   </div>
 <div>
-<%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
+<%= form_with model: @post_comment,url:post_comments_path(@post_comment), local: true do |f| %>
   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
   <%= f.submit "送信する" %>
 <% end %>
 </div>
   </div>
+  <% @post_comments.each do |post_comment| %>
+   <%= post_comment.comment %>
+  <% end %>
 </div>
