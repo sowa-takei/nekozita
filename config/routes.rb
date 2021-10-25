@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'public/PostComments'
  devise_for :admins,controllers: {
   sessions: 'admins/sessions',
   passwords: 'admins/passwords',
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   get 'customers/withdrawal' => "customers#withdrawal"
   put 'customers/proces' => "customers#proces"
   resources :items, only: [:index, :show]
+  resources :post_comments, only: [:create, :destroy]
   resources :orders, only: [:new, :index, :show, :create]
   resource :customers, only: [:show, :edit, :update]
   resources :address, only: [:index, :edit, :create, :update, :destroy]
