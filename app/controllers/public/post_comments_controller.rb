@@ -1,19 +1,27 @@
 class Public::PostCommentsController < ApplicationController
   def create
-    @post_comment = current_customer.post_comments.new(post_comment_params)
-    if @post_comment.save
-      redirect_back(fallback_location: root_path)  #コメント送信後は、一つ前のページへリダイレクトさせる。
+    @item = Item.find(params[:item_id])
+    @postcomment = PostComment.new(post_comment_params)
+    @postcomment.customer_id = current_customer.id
+    @postcomment.item_id = @item.id
+    if @postcomment.save
+      redirect_to item_path(@item)
+
     else
-      redirect_back(fallback_location: root_path)  #同上
+      redirect_to items_path
     end
   end
 
-  def destory
+  def destroy
+    #@post_comment.find_by(id: params[:id],item_id: params[:item_id]).destroy
+    PostComment.find_by(id: params[:id]).destroy
+
+    redirect_to items_path
   end
 
   private
 
   def post_comment_params
-    params.require(:post_comment).permit(:comment)
+    params.require(:post_comment).permit(:comment,:customer_id,:item_id)
   end
 end

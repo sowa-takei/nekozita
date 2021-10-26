@@ -25,9 +25,12 @@ Rails.application.routes.draw do
   get 'orders/completion' => "orders#completion"
   get 'customers/withdrawal' => "customers#withdrawal"
   put 'customers/proces' => "customers#proces"
-  resources :items, only: [:index, :show]
-   resource :favorites, only: [:create, :destroy]
-  resources :post_comments, only: [:create, :destroy]
+  resources :items, only: [:index, :show] do
+    resources :post_comments, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy]
+  end
+
+
   resources :orders, only: [:new, :index, :show, :create]
   resource :customers, only: [:show, :edit, :update]
   resources :address, only: [:index, :edit, :create, :update, :destroy]
