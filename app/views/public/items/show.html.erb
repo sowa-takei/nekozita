@@ -51,11 +51,13 @@
   </div>
   <% @post_comments.each do |post_comment| %>
    <%= post_comment.comment %>
+   <%= post_comment.id %>
+   <%= link_to "削除", item_post_comment_path(item_id: @item.id, id: post_comment.id), method: :delete %>
   <% end %>
   <div>
-    <%= link_to "削除", item_post_comment_path(@item.id), method: :delete %>
+
     <%#= link_to "削除", item_post_comment_path(post_comment.item, post_comment), method: :delete %>
     <%#= link_to "削除", tweet_comment_path(comment.tweet.id, comment.id), method: :delete %>
-
+    <%= link_to "お問い合わせ",new_contact_path %>
   </div>
 </div>

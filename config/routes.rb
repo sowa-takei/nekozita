@@ -30,7 +30,8 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
-
+  resources :contacts, only: [:new, :create]
+  post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   resources :orders, only: [:new, :index, :show, :create]
   resource :customers, only: [:show, :edit, :update]
   resources :address, only: [:index, :edit, :create, :update, :destroy]

@@ -7,6 +7,6 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
     @post_comment = PostComment.new
-    @post_comments = PostComment.all
+    @post_comments = @item.post_comments.all
   end
 end
