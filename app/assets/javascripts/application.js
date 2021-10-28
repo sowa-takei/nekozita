@@ -17,9 +17,10 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery.raty.js
 //= require_tree .
 
-$(document).ready(function () {
+ $(document).ready(function () {
   $("#images").skippr({
     // スライドショーの変化 ("fade" or "slide")
     transition : 'slide',

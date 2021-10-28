@@ -71,4 +71,26 @@
 
     <%= yield %>
   </body>
+
+  <footer>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <!--<a class="navbar-brand" href="/"><span>Nekozita</span></a>-->
+      <%= link_to "Nekozita",root_path,class:"btn btn-dark" %>
+      <%= image_tag 'nekozita.jpg',size: '100x50' %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+         <title>Nekozita</title>
+          <%= csrf_meta_tags %>
+          <%= csp_meta_tag %>
+          <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+          <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+          <li><%= link_to "お問い合わせ",new_contact_path %></li>
+      </div>
+    </div>
+   </nav>
+  </footer>
 </html>

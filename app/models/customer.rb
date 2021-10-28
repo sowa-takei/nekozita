@@ -9,6 +9,7 @@ class Customer < ApplicationRecord
     has_many :addresses
     has_many :post_comments, dependent: :destroy
     has_many :favorites, dependent: :destroy
+    has_many :reviews, dependent: :destroy
 
   def active_for_authentication?
     super && (self.is_active == true)
