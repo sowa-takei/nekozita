@@ -52,51 +52,59 @@
   <% end %>
   </div>
   <div class="row">
-  <div>
+   <div>
     <p>コメント件数：<%= @item.post_comments.count %></p>
        <%= @post_comment.comment %>
-       <%# if @post_comment.customer == current_customer %>
-
-  <%# end %>
+   </div>
   </div>
-<div>
-<%= form_with model: @post_comment,url:item_post_comments_path(@item), local: true do |f| %>
-  <%= f.text_area :comment, :size=>"50x5",placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
-</div>
-  </div>
-  <% @post_comments.each do |post_comment| %>
-   <%= post_comment.comment %>
-   <%= post_comment.id %>
-   <%= link_to "削除", item_post_comment_path(item_id: @item.id, id: post_comment.id), method: :delete %>
+  <%= form_with model: @post_comment,url:item_post_comments_path(@item), local: true do |f| %>
+    <%= f.text_area :comment, :size=>"50x5",placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
   <% end %>
-  <div>
-
-    <%#= link_to "削除", item_post_comment_path(post_comment.item, post_comment), method: :delete %>
-    <%#= link_to "削除", tweet_comment_path(comment.tweet.id, comment.id), method: :delete %>
-
-
-
-  </div>
-  <%= form_with model: @review, url:item_reviews_path(@item), local: true do |f| %>
-  <%= f.text_area :comment, rows:'5', placeholder: "商品のコメント", class: "form-control form-control-sm" %>
-    <div id="rating-form">
-        <label>評価：</label>
-        <%# scoreNameの値をhidden_fieldでカラムに送っている %>
-        <%= f.hidden_field :rate, :value => 'score' %>
+  <div class="row">
+    <div class="col-10">
+       <table class="table table-borderless">
+         <tr>
+           <th>お名前</th>
+           <th>コメント内容</th>
+           <th>日付</th>
+           <th></th>
+         </tr>
+         <% @post_comments.each do |post_comment| %>
+         <tr>
+           <td><%= current_customer.last_name + current_customer.first_name  %></td>
+           <td><%= post_comment.comment %></td>
+           <td><%= post_comment.created_at %></td>
+           <td><%= link_to "削除", item_post_comment_path(item_id: @item.id, id: post_comment.id), method: :delete %></td>
+         </tr>
+         <% end %>
+       </table>
     </div>
+  </div>
 
-    <%= f.submit "投稿する" %>
-<% end %>
 
-<% @item.reviews.each do |review| %>
- <%# rateを表示 %>
-<div class="review-rating" data-score="<%= review.rate %>">評価：</div>
 
-<div class="text-left">
-    <p>投稿者：<%= review.customer.last_name %></p>
-    <p><%= review.comment %></p>
+
+
+
+    <%= form_with model: @review, url:item_reviews_path(@item), local: true do |f| %>
+    <%= f.text_area :comment, rows:'5', placeholder: "商品のコメント", class: "form-control form-control-sm" %>
+      <div id="rating-form">
+          <label>評価：</label>
+          <%# scoreNameの値をhidden_fieldでカラムに送っている %>
+          <%= f.hidden_field :rate, :value => 'score' %>
+      </div>
+
+      <%= f.submit "投稿する" %>
+  <% end %>
+
+  <% @item.reviews.each do |review| %>
+   <%# rateを表示 %>
+  <div class="review-rating" data-score="<%= review.rate %>">評価：</div>
+
+  <div class="text-left">
+      <p>投稿者：<%= review.customer.last_name %></p>
+      <p><%= review.comment %></p>
 </div>
 
 <div class="text-right">
