@@ -1,15 +1,22 @@
-<%= form_with model: @contact, url: confirm_path, local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :name, 'お名前*' %>
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <%= form_with model: @contact, url: confirm_path, local: true do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <th>お名前</th>
+          <td><%= f.text_field :name, autofocus: true, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th>問い合わせ内容</th>
+          <td><%= f.text_area :message, size: '10x10', class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><%= f.submit '入力内容確認' %></td>
+        </tr>
+      </table>
+    <% end %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :message, 'メッセージ*' %>
-    <%= f.text_area :message, size: '10x10', class: 'form-control' %>
-  </div>
-
-  <div>
-    <%= f.submit '入力内容確認' %>
-  </div>
-<% end %>
+</div>
