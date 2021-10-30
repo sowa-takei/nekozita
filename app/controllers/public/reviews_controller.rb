@@ -10,10 +10,16 @@ class Public::ReviewsController < ApplicationController
     redirect_to item_path(@item)
   end
 
+  def destroy
+    @review = Review.find_by(id: params[:id]).destroy
+    redirect_to items_path
+  end
+
+
   private
 
   def review_params
-    params.permit(:comment,:customer_id,:item_id,:rate)
+    params.permit(:comment,:rate)
   end
 
 end
