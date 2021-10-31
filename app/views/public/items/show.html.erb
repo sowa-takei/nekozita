@@ -46,65 +46,48 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
-   <div>
-    <p>コメント件数：<%= @item.post_comments.count %></p>
-       <%= @post_comment.comment %>
-   </div>
-  </div>
-  <%= form_with model: @post_comment,url:item_post_comments_path(@item), local: true do |f| %>
-    <%= f.text_area :comment, :size=>"50x5",placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
+
   <div class="row">
     <div class="col-10">
-       <table class="table table-borderless">
-         <tr>
-           <th>お名前</th>
-           <th>コメント内容</th>
-           <th>日付</th>
-           <th></th>
-         </tr>
-         <% @post_comments.each do |post_comment| %>
-         <tr>
-           <td><%= current_customer.last_name + current_customer.first_name  %></td>
-           <td><%= post_comment.comment %></td>
-           <td><%= post_comment.created_at.strftime("%Y年%m月%d日") %></td>
-           <td><%= link_to "削除", item_post_comment_path(item_id: @item.id, id: post_comment.id), method: :delete %></td>
-         </tr>
-         <% end %>
-       </table>
+     <h4 class="font-weight-bolder">レビューを書く</h4>
+
+
+     <%= form_with model: @review, url: item_reviews_path(@item), local: true do |f| %>
+     <label>評価：<span id="rating-form"></label>
+
+      <%= f.text_area :comment, rows:'5', placeholder: "商品のコメント", class: "form-control form-control-sm" %>
+
+
+      <div class="search">
+       <%= f.submit "投稿する" %>
+
+      </div>
+     <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-10">
-      <%= form_with model: @review, url: item_reviews_path(@item), local: true do |f| %>
-  <%= f.text_area :comment, rows:'5', placeholder: "商品のコメント", class: "form-control form-control-sm" %>
-   <div id="rating-form">
-     <label>評価：</label>
-   </div>
-   <%= f.submit "投稿する" %>
-  <% end %>
-  <% @item.reviews.each do |review| %>
-   <%# rateを表示 %>
-  <div class="review-rating">評価：<span id="rate_<%= review.id %>"></span></div>
-  <div class="text-left">
-   <p>投稿者：<%= review.customer.last_name %></p>
-   <p><%= review.comment %></p>
-  </div>
-  <div class="text-right">
-   <p>
-    投稿日：<%= review.created_at.strftime('%Y/%m/%d') %>
-    <% if review.customer == current_customer %>
-    <%= link_to "コメント削除",  item_review_path(item_id: @item.id, id: review.id), method: :delete, class: "btn btn-sm btn-danger"  %>
-    <% end %>
-
-   </p>
-  </div>
-  <% end %>
+  <div class="row mx-auto mt-3">
+   <div class="col-10">
+    <h4 class="font-weight-bolder">カスタマーレビュー</h4>
+    <% @item.reviews.each do |review| %>
+    <%# rateを表示 %>
+    <div class="review-rating">評価：<span id="rate_<%= review.id %>"></span></div>
+    <div class="text-left">
+     <p>投稿者：<%= review.customer.last_name + review.customer.first_name %></p>
+     <p><%= review.comment %></p>
     </div>
-
+    <div class="text-right">
+     <p>
+      投稿日：<%= review.created_at.strftime('%Y/%m/%d') %>
+      <% if review.customer == current_customer %>
+       <%= link_to "コメント削除",  item_review_path(item_id: @item.id, id: review.id), method: :delete, class: "btn btn-sm btn-danger"  %>
+      <% end %>
+     </p>
+    </div>
+   <% end %>
   </div>
+  </div>
+
+
 
   <script>
     $('#rating-form').raty({

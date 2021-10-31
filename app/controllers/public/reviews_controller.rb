@@ -6,7 +6,7 @@ class Public::ReviewsController < ApplicationController
     #@review  = Review.new(review_params)
     @review.customer_id = current_customer.id
     @review.item_id = @item.id
-    @review.save
+    @review.save!
     redirect_to item_path(@item)
   end
 
