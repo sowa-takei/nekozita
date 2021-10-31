@@ -3,18 +3,30 @@
   <div class="row">
     <%= form_with model: @order,url: orders_verification_path, local: true do |f| %>
     <div class="col-12">
-      <h4 class="font-weight-bold">支払方法</h4>
-      <%= f.radio_button :payment_method, 0 %>クレジットカード</br>
-      <%= f.radio_button :payment_method, 1 %>銀行振込
-      <h4 class="font-weight-bold">お届け先</h4>
-      <%= radio_button_tag :delivery, 0 %>ご自身の住所</br>
-      〒<%= current_customer.postal_code %>
-      <%= current_customer.address %></br>
-      <%= current_customer.last_name + current_customer.first_name %></br>
-      <%= radio_button_tag :delivery, 1 %>登録済住所から選択</br>
-      <%= collection_select(:address, :id, @addresses, :id, :address ) %></br>
-      <%= radio_button_tag :delivery, 3 %>新しいお届け先</br>
-      <table>
+      <table class="table table-borderless">
+        <tr>
+          <th>支払方法</th>
+          <td><%= f.radio_button :payment_method, 0 %>クレジットカード</br>
+              <%= f.radio_button :payment_method, 1 %>銀行振込
+          </td>
+        </tr>
+        <tr>
+          <th>お届け先</th>
+          <td><%= radio_button_tag :delivery, 0 %>ご自身の住所</br>
+               〒<%= current_customer.postal_code %>
+               <%= current_customer.address %></br>
+               <%= current_customer.last_name + current_customer.first_name %>
+          </td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><%= radio_button_tag :delivery, 1 %>登録済住所から選択</br>
+              <%= collection_select(:address, :id, @addresses, :id, :address ) %></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><%= radio_button_tag :delivery, 3 %>新しいお届け先</td>
+        </tr>
         <tr>
           <th>郵便番号(ハイフンなし)</th>
           <td><%= f.text_field :postal_code,placeholder: "0000000" %></td>

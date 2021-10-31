@@ -3,7 +3,7 @@
  <div class="row">
   <div class="col-8">
    <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
-     <table>
+     <table class="table table-borderless">
       <tr>
        <th><%= f.label :メールアドレス %></th>
        <td><%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"40",placeholder:"sample@gmail.com" %></td>
@@ -20,4 +20,6 @@
     <% end %>
     </div>
    </div>
+   <h3>※管理者しかログインできません※</h3>
+   
   </div>

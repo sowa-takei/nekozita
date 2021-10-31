@@ -41,14 +41,16 @@ div.search {
   text-align: right;
 }
 
+
+
 .container {
-  position: relative;
-  padding-bottom: 40px;
+  min-height: 15vh;
 }
 
 footer {
-  position: absolute;
-  bottom: 0px;
+  margin-top: auto;
+  bottom: 0;
+  padding-top: 50px;
   width: 100%;
+  /* 背景色などは割愛します */
 }
-
