@@ -13,11 +13,14 @@ class Public::OrdersController < ApplicationController
     case params[:delivery]
     #ご自身の住所
     when "0"
-
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
     when "1"
+      address = Address.find(params[:address][:id])
+      @order.postal_code = address.postal_code
+      @order.address = address.address
+      @order.name = address.name
     when "2"
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]

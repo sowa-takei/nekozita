@@ -7,6 +7,6 @@
 
    <%= link_to "退会しない",customers_path,class:"btn btn-primary" %>
    <% if customer_signed_in? && @customer.id == current_customer.id %>
-    <%= link_to "退会する", customers_path, method: :put, class:"btn btn-danger" %>
+    <%= link_to "退会する", customers_proces_path(current_customer), method: :put, class:"btn btn-danger" %>
   <% end %>
 </div>

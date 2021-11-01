@@ -3,12 +3,12 @@
     <div class="col-10">
       <h4>ショッピングカート</h4>
     </div>
-    <div class="col-2 mt-5">
+    <div class="col-2">
       <%= link_to "カートを空にする", cart_item_path(@cart_items), method: :delete,class: "btn btn-danger" %>
     </div>
   </div>
   <div class="col-12">
-    <div class="row">
+    <div class="row mt-5">
       <table class="table table-bordered">
          <thead class="thead-dark">
            <tr>
@@ -39,7 +39,7 @@
       </table>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-7">
       <%= link_to "買い物を続ける",items_path,class:"btn btn-primary" %>
     </div>
@@ -54,7 +54,7 @@
       </table>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-2">
     <div class="col-6">
     </div>
     <div class="col-6">

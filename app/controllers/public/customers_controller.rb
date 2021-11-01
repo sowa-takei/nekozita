@@ -8,9 +8,9 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:id])  # 1.インスタンス変数にセット
+    @customer = current_customer
     @customer.update(customer_params)
-    redirect_to  orders_path
+    redirect_to  customers_path
   end
 
   def withdrawal
@@ -20,7 +20,7 @@ class Public::CustomersController < ApplicationController
   def proces
     @customer = current_customer
     #is_deletedカラムにフラグを立てる(defaultはtrue)
-    @user.update(is_active: false)
+    @customer.update(is_active: false)
     #ログアウトさせる
     reset_session
     flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
