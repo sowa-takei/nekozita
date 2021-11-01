@@ -3,13 +3,18 @@
   <div class="row">
     <div class="col-10">
       <%= form_with model: @genre, url:admin_genre_path(@genre),local:true do |f| %>
-      <table>
+      <table class="table table-borderless">
         <tr>
           <th>ジャンル名</th>
           <td><%= f.text_field :name %>
-              <%= f.submit "変更を保存",class:"btn btn-success" %> </td>
+              <%= f.submit "変更を保存",class:"btn btn-success" %>
+          </td>
         </tr>
       </table>
+      <div class="text">
+        <h4>ジャンル変更する際は必ず確認おねがいします。</h4>
+        <h4>※文字の間違いなどは要注意※</h4>
+      </div>
       <% end %>
     </div>
   </div>

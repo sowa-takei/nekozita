@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
    <nav class="navbar navbar-expand-lg ">
     <div class="container">
       <!--<a class="navbar-brand" href="/"><span>Nekozita</span></a>-->
@@ -54,16 +55,16 @@
               <%= link_to "ログイン", new_customer_session_path %>
             </li>
           <% end %>
+        </div>
       </div>
     </div>
+     <div class="search">
+           <%= search_form_for @search,url:items_path do |f| %>
+            <%#= f.text_field :name_cont, placeholder: '名前を入力...' %>
+            <%= f.search_field :name_cont %>
+           <%= f.submit "検索する" %>
+         <% end %>
    </nav>
-   <div class="search">
-     <%= search_form_for @search,url:items_path do |f| %>
-      <%#= f.text_field :name_cont, placeholder: '名前を入力...' %>
-      <%= f.search_field :name_cont %>
-      <%= f.submit "検索する" %>
-    <% end %>
-   </div>
 
   </head>
 
@@ -72,8 +73,8 @@
     <%= yield %>
   </body>
 
-  <!--<div id=”footer”></div>-->
-  <footer>
+  <!--<div id="footer" class="fixed-bottom">-->
+   <footer>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <!--<a class="navbar-brand" href="/"><span>Nekozita</span></a>-->
@@ -93,6 +94,7 @@
       </div>
     </div>
     </footer>
+    <!--</div>-->
    </nav>
   </div>
 </html>
