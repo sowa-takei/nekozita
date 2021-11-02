@@ -11,16 +11,3 @@ Admin.create!(
   )
 
 
-Genre.create!(
-  [
-    {
-      name: "Tops"
-    },
-    {
-      name: "Pants"
-    },
-    {
-      name: "Others"
-    }
-  ]
-)

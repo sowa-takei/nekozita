@@ -25,7 +25,7 @@
                  <%= cart_item.item.name %>
               </td>
               <td><%= cart_item.item.with_tax_price %>円</td>
-              <%= form_with model: cart_item, url: cart_items_path(cart_item),local: true do |f| %>
+              <%= form_with model:cart_item, url:cart_item_path(cart_item),local: true do |f| %>
               <td><%= f.select :amount,*[1..20] %>
                   <%= f.submit "変更する",class:"btn btn-success" %>
               </td>

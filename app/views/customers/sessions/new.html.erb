@@ -2,6 +2,12 @@
   <h2>ログイン</h2>
   <%#= flash[:error] %>
   <%#= flash[:notice] %>
+  <% if @customer.errors.any? %>
+  <%= @customer.errors.count %>件のエラーが発生しました
+  <% @customer.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
  <p>会員の方は、下のフォームにメールアドレス・パスワードを入力して「ログイン」ボタンを押してください。</p>
  <div class="row">
   <div class="col-8">
@@ -13,7 +19,7 @@
       </tr>
       <tr>
        <th><%= f.label :パスワード %></th>
-       <td><%= f.password_field :password, autocomplete: "current-password",:size=>"40" %></td>
+       <td><%= f.text_field :password, autocomplete: "current-password",:size=>"40" %></td>
       </tr>
       <tr>
        <th></th>

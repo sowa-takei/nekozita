@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_items_path
     when Customer
-      items_path
+      customers_path
     end
   end
 

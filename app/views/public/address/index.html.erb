@@ -1,3 +1,6 @@
+<% if @address.errors.any? %>
+  <p class="red">名前を入力してください</p>
+<% end %>
 <div class="container">
   <h4 class="font-weight-bolder">配送先登録/一覧</h4>
   <div class="row">
