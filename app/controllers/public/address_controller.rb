@@ -9,13 +9,15 @@ class Public::AddressController < ApplicationController
   end
 
   def create
-    if @address = Address.new(address_params)
-       @address.customer_id = current_customer.id
-       @address.save
+    @address = Address.new(address_params)
+    @address.customer_id = current_customer.id
+    if @address.save
        redirect_to address_index_path(@address)
-     else
-       render :index
-     end
+    else
+      @addresses = current_customer.addresses
+      render :index
+
+    end
   end
 
   def update

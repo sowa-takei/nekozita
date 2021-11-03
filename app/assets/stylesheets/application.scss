@@ -48,12 +48,24 @@ body {
 
 
 .container {
-  min-height: 15vh;
-  margin-bottom: 10px;
+   min-height: 15vh;
+   margin-bottom: 10px;
+   bottom: 0;
+ }
 
-
+body {
+  position: relative;/*←相対位置*/
 }
 
+
 footer {
+  position: absolute;/*←絶対位置*/
   margin-top: 100px;
+  // bottom: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+div.errors {
+  color :red;
 }

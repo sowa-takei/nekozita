@@ -6,8 +6,13 @@ class Public::ReviewsController < ApplicationController
     #@review  = Review.new(review_params)
     @review.customer_id = current_customer.id
     @review.item_id = @item.id
-    @review.save!
-    redirect_to item_path(@item)
+    if @review.save
+      redirect_to item_path(@item)
+    else
+
+      render template: "items/show"
+
+    end
   end
 
   def destroy

@@ -50,7 +50,14 @@
   <div class="row">
     <div class="col-10">
      <h4 class="font-weight-bolder">レビューを書く</h4>
-
+      <div class="errors">
+       <% if @item.errors.any? %>
+        <%= @item.errors.count %>件のエラーが発生しました</br>
+        <% @item.errors.full_messages.each do |message| %>
+         <%= message %></br>
+        <% end %>
+       <% end %>
+      </div>
 
      <%= form_with model: @review, url: item_reviews_path(@item), local: true do |f| %>
      <label>評価：<span id="rating-form"></label>
