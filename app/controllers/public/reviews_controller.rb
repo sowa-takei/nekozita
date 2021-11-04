@@ -10,7 +10,7 @@ class Public::ReviewsController < ApplicationController
       redirect_to item_path(@item)
     else
 
-      render template: "items/show"
+      render "public/items/show"
 
     end
   end

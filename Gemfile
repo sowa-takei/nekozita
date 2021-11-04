@@ -81,3 +81,5 @@ gem 'rails-i18n'
 gem 'ransack'
 
 gem "dotenv-rails"
+
+gem 'devise-i18n'

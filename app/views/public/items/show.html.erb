@@ -51,9 +51,9 @@
     <div class="col-10">
      <h4 class="font-weight-bolder">レビューを書く</h4>
       <div class="errors">
-       <% if @item.errors.any? %>
-        <%= @item.errors.count %>件のエラーが発生しました</br>
-        <% @item.errors.full_messages.each do |message| %>
+       <% if @review.errors.any? %>
+        <%= @review.errors.count %>件のエラーが発生しました</br>
+        <% @review.errors.full_messages.each do |message| %>
          <%= message %></br>
         <% end %>
        <% end %>

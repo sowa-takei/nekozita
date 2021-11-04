@@ -2,6 +2,9 @@
   <h2>ログイン</h2>
   <%#= flash[:error] %>
   <%#= flash[:notice] %>
+  <%= render "customers/shared/error_messages", resource: resource %>
+
+  <p class="alert"><%= flash[:alert] %></p>
   <% if @customer.errors.any? %>
   <%= @customer.errors.count %>件のエラーが発生しました
   <% @customer.errors.full_messages.each do |message| %>
