@@ -1,5 +1,6 @@
 <div class="container" style="min-height: 400px;">
 <h2>管理者ログイン</h2>
+<p class="alert"><%= flash[:alert] %></p>
  <div class="row">
   <div class="col-8">
    <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
