@@ -5,6 +5,16 @@ ja: # 日本語の設定を行う
         credit_card: 'クレジットカード'
         transfer: '銀行振込'
 
+la:
+  activerecord:
+    models:
+      genre: ジャンル
+    attributes:
+      genre:
+        name: 名前
+
+
+
   activerecord:
     models:
       # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
@@ -15,6 +25,10 @@ ja: # 日本語の設定を行う
           id: ID
           # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
           rate: 評価
+
+
+
+
 
 
   order:
