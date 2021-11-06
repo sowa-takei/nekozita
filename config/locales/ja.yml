@@ -5,7 +5,17 @@ ja: # 日本語の設定を行う
         credit_card: 'クレジットカード'
         transfer: '銀行振込'
 
+
+
   activerecord:
+    models:
+    address: 住所
+    attributes:
+       address:
+        name: 宛名
+        postal_code: 郵便番号
+        address: 住所
+  activemodel:
     models:
       # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
       review: レビュー
@@ -16,20 +26,10 @@ ja: # 日本語の設定を行う
           # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
           rate: 評価
 
-  activemodel:
-    attributes:
-      customer:
-        last_name: 市区町村
 
 
 
 
 
 
-  order:
-    order.statuses.keys.to_a:
-      waiting_for_payment: '入金待ち'
-      payment_confirmation: "入金確認"
-      production: "製作中"
-      ready_to_ship: "発送準備中"
-      sent: "発送済み"
+

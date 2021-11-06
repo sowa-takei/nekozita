@@ -155,11 +155,10 @@ ja:
         postal_code: 郵便番号
         address: 住所
 
-  activerecord:
-    models:
-    address:
+　　models:
+    address: 住所
     attributes:
-      address:
+       address:
+        name: 宛名
         postal_code: 郵便番号
         address: 住所
-        name: 宛名
