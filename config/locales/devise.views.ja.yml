@@ -141,3 +141,25 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+
+  activerecord:
+    models:
+    customer: 会員
+    attributes:
+      customer:
+        last_name: 氏名
+        first_name: 名前
+        last_name_kana: 氏名(カナ)
+        first_name_kana: 名前(カナ)
+        telephone_number: 電話番号
+        postal_code: 郵便番号
+        address: 住所
+
+  activerecord:
+    models:
+    address:
+    attributes:
+      address:
+        postal_code: 郵便番号
+        address: 住所
+        name: 宛名
