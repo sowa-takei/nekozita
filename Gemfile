@@ -80,6 +80,9 @@ gem 'rails-i18n'
 
 gem 'ransack'
 
-gem "dotenv-rails"
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 
 gem 'devise-i18n'
