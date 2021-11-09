@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
-  #before_action :authenticate_custoomer!,only: [:top]
+  before_action :authenticate_customer!, except: [:top]
+
+
+
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_search
@@ -8,6 +11,17 @@ class ApplicationController < ActionController::Base
     @search = Item.ransack(params[:q])
     @search_items = @search.result
   end
+
+  def authenticate_any!
+  if admin_signed_in?
+      true
+  else
+      authenticate_customer!
+  end
+  end
+
+
+
 
   def after_sign_in_path_for(resource)
     case resource
