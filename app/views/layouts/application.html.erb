@@ -1,100 +1,91 @@
 <!DOCTYPE html>
 <html>
-  <head>
-
-   <nav class="navbar navbar-expand-lg ">
-    <div class="container">
-      <!--<a class="navbar-brand" href="/"><span>Nekozita</span></a>-->
-      <%= link_to "Nekozita",root_path,class:"btn btn-dark" %>
-      <%= image_tag 'nekozita.jpg',size: '100x50' %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-         <title>Nekozita</title>
-          <%= csrf_meta_tags %>
-          <%= csp_meta_tag %>
-          <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-          <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-           <% if admin_signed_in? %>
-            <li>
-              <%= link_to "商品一覧です", admin_items_path,class:"btn btn-outline-primary" %>
-            </li>
-            <li>
-              <%= link_to "顧客一覧です", admin_customers_path,class:"btn btn-primary" %>
-            </li>
-            <li>
-              <%= link_to "注文履歴一覧", admin_path,class:"btn btn-primary" %>
-            </li>
-            <li>
-              <%= link_to "ジャンル一覧", admin_genres_path,class:"btn btn-outline-primary" %>
-            </li>
-             <li>
-              <%= link_to "ログアウト", destroy_admin_session_path,class:"btn btn-primary", method: :delete %>
-            </li>
-          <% elsif customer_signed_in? %>
-            <li>
-              <%= link_to "マイページ",customers_path,class:"btn btn-dark" %>
-            </li>
-            <li>
-              <%= link_to "商品一覧", items_path,class:"btn btn-dark" %>
-            </li>
-            <li>
-              <%= link_to "カート",cart_items_path,class:"btn btn-dark" %>
-            </li>
-            <li>
-              <%= link_to "ログアウト",destroy_customer_session_path,class:"btn btn-dark", method: :delete %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "新規登録",new_customer_registration_path %>
-            </li>
-            <li>
-              <%= link_to "ログイン", new_customer_session_path %>
-            </li>
-          <% end %>
+  <header>
+    <title>Nekozita</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </header>
+  <body>
+    <head>
+      <nav class="navbar navbar-expand-lg ">
+        <div class="container">
+          <!--<a class="navbar-brand" href="/"><span>Nekozita</span></a>-->
+          <%= link_to "Nekozita",root_path,class:"btn btn-dark" %>
+          <%= image_tag 'nekozita.jpg',size: '100x50' %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <% if admin_signed_in? %>
+              <li>
+                <%= link_to "商品一覧です", admin_items_path,class:"btn btn-outline-primary" %>
+              </li>
+              <li>
+                <%= link_to "顧客一覧です", admin_customers_path,class:"btn btn-primary" %>
+              </li>
+              <li>
+                <%= link_to "注文履歴一覧", admin_path,class:"btn btn-primary" %>
+              </li>
+              <li>
+                <%= link_to "ジャンル一覧", admin_genres_path,class:"btn btn-outline-primary" %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", destroy_admin_session_path,class:"btn btn-primary", method: :delete %>
+              </li>
+            <% elsif customer_signed_in? %>
+              <li>
+                <%= link_to "マイページ",customers_path,class:"btn btn-dark" %>
+              </li>
+              <li>
+                <%= link_to "商品一覧", items_path,class:"btn btn-dark" %>
+              </li>
+              <li>
+                <%= link_to "カート",cart_items_path,class:"btn btn-dark" %>
+              </li>
+              <li>
+                <%= link_to "ログアウト",destroy_customer_session_path,class:"btn btn-dark", method: :delete %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "新規登録",new_customer_registration_path %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_customer_session_path %>
+              </li>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </div>
-     <div class="search">
-           <%= search_form_for @search,url:items_path do |f| %>
+        <div class="search">
+          <%= search_form_for @search,url:items_path do |f| %>
             <%#= f.text_field :name_cont, placeholder: '名前を入力...' %>
             <%= f.search_field :name_cont %>
-           <%= f.submit "検索する" %>
-         <% end %>
-   </nav>
-
-  </head>
-
-  <body>
-
+            <%= f.submit "検索する" %>
+          <% end %>
+        </div>
+      </nav>
+    </head>
     <%= yield %>
-  </body>
-
-  <!--<div id="footer" class="fixed-bottom">-->
-   <footer>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <!--<a class="navbar-brand" href="/"><span>Nekozita</span></a>-->
-      <%= link_to "Nekozita",root_path,class:"btn btn-dark" %>
-      <%= image_tag 'nekozita.jpg',size: '100x50' %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-         <title>Nekozita</title>
-          <%= csrf_meta_tags %>
-          <%= csp_meta_tag %>
-          <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-          <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-          <li><%= link_to "お問い合わせ",new_contact_path %></li>
-      </div>
-    </div>
+    <!--<div id="footer" class="fixed-bottom">-->
+    <footer>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <!--<a class="navbar-brand" href="/"><span>Nekozita</span></a>-->
+          <%= link_to "Nekozita",root_path,class:"btn btn-dark" %>
+          <%= image_tag 'nekozita.jpg',size: '100x50' %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <li><%= link_to "お問い合わせ",new_contact_path %></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </footer>
     <!--</div>-->
-   </nav>
-  </div>
+  </body>
 </html>
