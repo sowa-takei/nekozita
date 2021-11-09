@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  #before_action :authenticate_custoomer!,only: [:top]
-  #before_action :authenticate_admin!,only: [:search]
+  before_action :authenticate_custoomer!,only: [:top]
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_search
 
