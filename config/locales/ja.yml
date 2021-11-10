@@ -17,7 +17,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -43,7 +43,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -205,7 +205,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-    
+
   ja: # 日本語の設定を行う
   enums: # enumの設定を行う
     order: # モデル名（Orderモデルに対して）
@@ -213,23 +213,27 @@ ja:
         credit_card: 'クレジットカード'
         transfer: '銀行振込'
 
-
-
   activerecord:
     models:
     address: 住所
+    review: 評価
     attributes:
-       address:
+      address:
         name: 宛名
         postal_code: 郵便番号
         address: 住所
-      # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
-    # model毎に定義したいattributesを記述
-        review:
-          id: ID
-          # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
-          rate: 評価
-
+      review:
+        id: ID
+        rate: 評価
+    # models:
+    # review: 評価
+    # attributes:
+    #   review:
+    #     # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+    #     # model毎に定義したいattributesを記述
+    #     id: ID
+    #     # view側： User.human_attribute_name :name => "名前" / t("activerecord.attributes.user.name")と同じ
+    #     rate: 評価
 
 
 
