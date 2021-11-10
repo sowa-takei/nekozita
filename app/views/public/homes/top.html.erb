@@ -3,7 +3,7 @@
     <%= render 'public/homes/BRAND', items: @items %>
     <div class="col-10">
       <div id="box">
-  　　 　<div id="images">
+      <div id="images">
         <div class="image1"></div>
         <div class="image2"></div>
         <div class="image3"></div>
@@ -12,8 +12,8 @@
         <div class="image6"></div>
        </div>
       </div>
-    　<h4>新着商品</h4>
-    　<div class="row mx-auto mt-3">
+     <h4>新着商品</h4>
+     <div class="row mx-auto mt-3">
       <% @items.last(4).each do |item| %>
       <%# @search_items.last(4) each do |item| %>
       <div class="mx-auto">

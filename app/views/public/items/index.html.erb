@@ -3,9 +3,9 @@
     <%= render 'public/homes/BRAND', items: @items %>
     <div class="col-10 mt-5">
 
-    　<h4>新着商品</h4>
-    　<div class="row mx-auto mt-3">
-    　<% if @search_items %>
+     <h4>新着商品</h4>
+     <div class="row mx-auto mt-3">
+     <% if @search_items %>
         <%# render partial: 'items/item', collection: @search_items %>
         <% @search_items.each do |item| %>
           <div class="mx-auto">
