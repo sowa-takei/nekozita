@@ -32,7 +32,7 @@
       <tr>
         <th>メールアドレス</th>
         <td><%= f.text_field :email,size: 40 %>
-        　　例: sample@sample.jp （半角英数字）
+          例: sample@sample.jp （半角英数字）
         </td>
       </tr>
       <tr>
@@ -57,7 +57,6 @@
             <em>(<%= @minimum_password_length %> 文字以上)</em>
             <% end %></br>
             <%= f.password_field :password, autocomplete: "new-password" %></br>
-
             <%= f.password_field :password_confirmation, autocomplete: "new_password" %>
             <%= f.label :password_confirmation %>
         </td>
