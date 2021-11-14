@@ -63,14 +63,14 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "nekozita_#{Rails.env}"
 
-  config.action_mailer.perform_caching = false
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+   config.action_mailer.smtp_settings = {
       port: 587,
       address: 'smtp.gmail.com',
       domain: 'gmail.com',
@@ -79,7 +79,7 @@ Rails.application.configure do
       enable_starttls_auto: true
   }
 
-
+  config.action_mailer.perform_caching = false
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
