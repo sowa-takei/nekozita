@@ -69,3 +69,13 @@ footer {
 div.errors {
   color :red;
 }
+
+@media (max-width: 480px){
+#box{
+  height: 100px;
+}
+h1{
+  font-size: 1.2
+  rem;
+}
+}

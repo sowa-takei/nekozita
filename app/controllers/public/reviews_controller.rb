@@ -24,7 +24,7 @@ class Public::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.permit(:comment,:rate)
+    params.require(:review).permit(:comment,:rate)
   end
 
 end
