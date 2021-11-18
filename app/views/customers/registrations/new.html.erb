@@ -4,7 +4,7 @@
 <%= render "devise/shared/error_messages", resource: @customer %>
 
  <div class="row">
-  <div class="col-10">
+  <div class="col-xs-12 col-md-10">
     <%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
     <table class="table table-bordered">
       <tr>
