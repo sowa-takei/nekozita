@@ -13,29 +13,29 @@
     <div class="row mt-5">
       <table class="table table-bordered">
          <thead class="thead-dark">
-           <tr>
-             <th>商品名</th>
-             <th>単価(税込)</th>
-             <th>数量</th>
-             <th>小計</th>
-             <th></th>
-           </tr>
+           <!--<tr>-->
+           <!--  <th>商品名</th>-->
+           <!--  <th>単価(税込)</th>-->
+           <!--  <th>数量</th>-->
+           <!--  <th>小計</th>-->
+           <!--  <th></th>-->
+           <!--</tr>-->
            <% @sum = 0 %>
            <% @cart_items.each do |cart_item| %>
-           <tr>
-             <td>
+           <tr class="row">
+             <td class="col-md-6 col-12">
              　 　<%= attachment_image_tag cart_item.item, :image, :fill,100,50 %>
                  <%= cart_item.item.name %>
              </td>
-             <td><%= cart_item.item.with_tax_price %>円</td>
-             <td><%= form_with model:cart_item, url:cart_item_path(cart_item),local: true do |f| %>
+             <td class="col-md-1 col-3"><%= cart_item.item.with_tax_price %>円(税込)</td>
+             <td class="col-md-2 col-3"><%= form_with model:cart_item, url:cart_item_path(cart_item),local: true do |f| %>
                   <%= f.select :amount,*[1..20] %>
-                  <%= f.submit "変更する",class:"btn btn-success" %>
+                  <%= f.submit "変更する",class:"btn-sm btn-success" %>
                  <% end %>
              </td>
-             <td><%= cart_item.subtotal %>円</td>
+             <td class="col-md-1 col-3"><%= cart_item.subtotal %>円(小計)</td>
              <% @sum += cart_item.subtotal %>
-             <td><%= link_to "削除する",delete_cart_item_path(cart_item),method: :delete, class:"btn btn-danger" %></td>
+             <td class="col-md-2 col-3"><%= link_to "削除する",delete_cart_item_path(cart_item),method: :delete, class:"btn btn-danger" %></td>
            </tr>
            <% end %>
          </thead>
