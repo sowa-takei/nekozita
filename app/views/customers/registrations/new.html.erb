@@ -43,6 +43,10 @@
           <%= f.label :住所 %>
           <%= f.text_field :address,class: :"form-control",placeholder:"東京都千代田区大手町159" %>
         </div>
+        <div class="form-group col-12">
+          <%= f.label :電話番号 %>
+          <%= f.text_field :telephone_number,class: :"form-control" %>
+        </div>
         <div class="form-group col-md-12">
           <%= f.label :パスワード %>
           <% if @minimum_password_length %>
