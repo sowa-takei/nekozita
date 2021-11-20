@@ -13,10 +13,7 @@ class Public::PostCommentsController < ApplicationController
   end
 
   def destroy
-    #@post_comment.find_by(id: params[:id],item_id: params[:item_id]).destroy
-    p params[:id]
     PostComment.find_by(id: params[:id]).destroy
-
     redirect_to items_path
   end
 

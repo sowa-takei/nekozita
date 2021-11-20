@@ -8,15 +8,12 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_any!
-  if admin_signed_in?
-      true
-  else
-      authenticate_customer!
+   if admin_signed_in?
+    true
+ 　 else
+    authenticate_customer!
+   end
   end
-  end
-
-
-
 
   def after_sign_in_path_for(resource)
     case resource
@@ -31,7 +28,7 @@ class ApplicationController < ActionController::Base
    root_path
   end
 
-   protected
+  protected
 
    def reject_customer
     @customer = Customer.find_by(email: params[:user][:email].downcase)

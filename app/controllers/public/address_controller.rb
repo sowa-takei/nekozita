@@ -16,7 +16,6 @@ class Public::AddressController < Public::ApplicationController
     else
       @addresses = current_customer.addresses
       render :index
-
     end
   end
 

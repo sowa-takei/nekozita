@@ -3,7 +3,7 @@
  <p>会員登録をご希望の方は、 下記のフォームに必要事項を入力し「入力内容を確認する」ボタンを押してください。</p>
  <%= render "devise/shared/error_messages", resource: @customer %>
  <div class="row">
-  <div class="col-xs-12 col-md-10">
+  <div class="col-xs-12 col-md-12">
 　　<%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
     <div class="form-row">
       <div class="form-group col-xs-12 col-md-6">

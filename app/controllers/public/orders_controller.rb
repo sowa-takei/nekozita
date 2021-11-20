@@ -48,7 +48,6 @@ class Public::OrdersController < ApplicationController
     current_customer.cart_items.destroy_all
     # ↑orderとorder_detailに保存したので、カート内商品は削除。
      redirect_to orders_completion_path
-
   end
 
   def index
