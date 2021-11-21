@@ -21,7 +21,7 @@ class Public::AddressController < Public::ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    @address.save
+    @address.update(address_params)
     redirect_to address_index_path
   end
 

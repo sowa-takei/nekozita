@@ -2,23 +2,21 @@
    <h2 class="sample" style="text-align:center;">お問い合わせ画面</h2>
   <div class="row">
     <div class="col-10">
-
       <%= form_with model: @contact, url: confirm_path, local: true do |f| %>
-      <table class="table table-borderless">
-        <tr>
-          <th>お名前</th>
-          <td><%= f.text_field :name, autofocus: true, class: 'form-control' %></td>
-        </tr>
-        <tr>
-          <th>問い合わせ内容</th>
-          <td><%= f.text_area :message, size: '10x10', class: 'form-control' %></td>
-        </tr>
-        <tr>
-          <th></th>
-          <td><%= f.submit '入力内容確認' %></td>
-        </tr>
-      </table>
-    <% end %>
+      <div class="form-row">
+        <div class="form-group col-xs-12 col-md-10">
+          <%= f.label :お名前 %>
+          <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+        </div>
+        <div class="form-group col-xs-12 col-md-10">
+          <%= f.label :問い合わせ内容 %>
+          <%= f.text_area :message, autofocus: true, class: 'form-control',size: "20x10" %>
+        </div>
+        <div class="form-group col-xs-12 col-md-10">
+          <%= f.submit '入力内容確認' %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

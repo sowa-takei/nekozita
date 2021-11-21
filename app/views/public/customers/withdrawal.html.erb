@@ -4,9 +4,8 @@
      これまでの購入履歴が閲覧できなくなります。</br>
      退会する場合は、「退会する」をクリックしてください。
   </p>
-
-   <%= link_to "退会しない",customers_path,class:"btn btn-primary" %>
-   <% if customer_signed_in? && @customer.id == current_customer.id %>
+  <%= link_to "退会しない",customers_path,class:"btn btn-primary" %>
+  <% if customer_signed_in? && @customer.id == current_customer.id %>
     <%= link_to "退会する", customers_proces_path(current_customer), method: :put, class:"btn btn-danger" %>
   <% end %>
 </div>

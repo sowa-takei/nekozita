@@ -2,15 +2,14 @@
   <div class="row">
     <div class="col-10">
       <table class="table table-borderless">
-          <tr>
-            <td>お名前</td>
-            <td><%= @contact.name %></td>
-          </tr>
-          <tr>
-            <td>問い合わせ内容</td>
-            <td><%= @contact.message %></td>
-          </tr>
-
+        <tr>
+          <td>お名前</td>
+          <td><%= @contact.name %></td>
+        </tr>
+        <tr>
+          <td>問い合わせ内容</td>
+          <td><%= @contact.message %></td>
+        </tr>
       </table>
 
       <%= form_with model:@contact, local: true do |f| %>
@@ -21,6 +20,7 @@
         <%= f.hidden_field :message %>
         <div><%= f.submit '送信' %></div>
       <% end %>
+      <div class="row mt-5">
       <%= form_with model: @contact, url: new_contact_path do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
@@ -29,6 +29,7 @@
         <%= f.hidden_field :message %>
         <div><%= f.submit '入力画面に戻る' %></div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

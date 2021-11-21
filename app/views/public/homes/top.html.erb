@@ -1,33 +1,32 @@
-
 <div class="container">
   <div class="row">
     <%= render 'public/homes/BRAND', items: @items %>
     <div class="col-10">
       <div id="box">
-      <div id="images">
-        <div class="image1"></div>
-        <div class="image2"></div>
-        <div class="image3"></div>
-        <div class="image4"></div>
-        <div class="image5"></div>
-        <div class="image6"></div>
-       </div>
+        <div id="images">
+        　<div class="image1"></div>
+        　<div class="image2"></div>
+        　<div class="image3"></div>
+        　<div class="image4"></div>
+        　<div class="image5"></div>
+        　<div class="image6"></div>
+        </div>
       </div>
-     <h4>新着商品</h4>
-     <div class="row mx-auto mt-3">
-      <% @items.last(4).each do |item| %>
-      <%# @search_items.last(4) each do |item| %>
-      <div class="mx-auto">
-       <%= attachment_image_tag item, :image, size: "100x100" %></br>
+      <h4>新着商品</h4>
+      <div class="row mx-auto mt-3">
+       <% @items.last(4).each do |item| %>
+       <%# @search_items.last(4) each do |item| %>
+       <div class="mx-auto">
+        <%= attachment_image_tag item, :image, size: "100x100" %></br>
         <div class="row mt-3">
          <%= item.name %></br>
         </div>
         <div class="row mt-1">
          ￥<%= item.price %>
         </div>
-      </div>
-      <% end %>
-      <%= link_to "全ての商品を見る",items_path %>
+       </div>
+       <% end %>
+       <%= link_to "全ての商品を見る",items_path %>
       </div>
     </div>
   </div>

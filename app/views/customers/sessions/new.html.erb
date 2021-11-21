@@ -1,8 +1,8 @@
 <div class="container" style="min-height: 600px;">
   <h2>ログイン</h2>
   <p class="alert"><%= flash[:alert] %></p>
- <p>会員の方は、下のフォームにメールアドレス・パスワードを入力して「ログイン」ボタンを押してください。</p>
- <div class="row">
+  <p>会員の方は、下のフォームにメールアドレス・パスワードを入力して「ログイン」ボタンを押してください。</p>
+  <div class="row">
    <div class="col-xs-12 col-md-10">
     <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
      <div class="form-row">
