@@ -21,7 +21,7 @@
           <%= collection_select(:address, :id, @addresses, :id, :address ) %>
         </div>
         <div class="form-group col-xs-12 col-md-10">
-          <%= radio_button_tag :delivery, 2 %>新しいお届け先
+          <%= radio_button_tag :delivery, 2 %>新しいお届け先</br>
           <%= f.label :郵便番号 %>(ハイフンなし)
           <%= f.text_field :postal_code,class: :"form-control",placeholder:"1234567" %>
         </div>
