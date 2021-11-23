@@ -14,11 +14,11 @@
 //= require popper
 //= require bootstrap-sprockets
 
+//= require_tree .
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery.raty.js
-//= require_tree .
+
 
  $(document).ready(function () {
   $("#images").skippr({
