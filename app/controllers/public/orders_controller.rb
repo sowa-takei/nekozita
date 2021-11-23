@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
    @order = Order.new
-   @addresses = Address.all
+   @addresses = current_customer.addresses
   end
 
   def verification
