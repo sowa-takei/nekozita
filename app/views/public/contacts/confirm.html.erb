@@ -12,22 +12,22 @@
         </tr>
       </table>
 
-      <%= form_with model:@contact, local: true do |f| %>
+      <%= form_with model: @contact, local: true do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
         <%= f.hidden_field :phone_number %>
         <%= f.hidden_field :subject %>
         <%= f.hidden_field :message %>
-        <div><%= f.submit '送信' %></div>
+        <div><%= f.submit '送信',class: "btn  btn-success" %></div>
       <% end %>
       <div class="row mt-5">
-      <%= form_with model: @contact, url: new_contact_path do |f| %>
+      <%= form_with model: @contact, url:new_contact_path, local: true do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
         <%= f.hidden_field :phone_number %>
         <%= f.hidden_field :subject %>
         <%= f.hidden_field :message %>
-        <div><%= f.submit '入力画面に戻る' %></div>
+        <%= link_to "入力画面に戻る", new_contact_path,class: "btn btn-sm btn-danger" %>
       <% end %>
       </div>
     </div>
