@@ -17,6 +17,12 @@
          </p>
         <% end %>
       </div>
+      <% if @cart_item.errors.any? %>
+       <%= @cart_item.errors.count %>件のエラーが発生しました
+        <% @cart_item.errors.full_messages.each do |message| %>
+         <%= message %>
+        <% end %>
+      <% end %>
       <div class="col-xs-12 col-md-6">
         <%= form_with model: @cart_item,url:cart_items_path(@cart_item), local: true do |f| %>
           <div class="form-row">
