@@ -22,7 +22,7 @@ nekozitaなら、お気に入りの服がきっと見つかります。
 
 ### 主な利用シーン
 雑誌やSNSを見ていて気になった時
-通勤、通学、時間が空いた時
+通勤、通学など時間が空いたとき
 
 ## 設計書
 https://docs.google.com/spreadsheets/d/1XIgEPpbdwgyKCqT13pzb2xuRsRZvkzR0/edit#gid=549108681
