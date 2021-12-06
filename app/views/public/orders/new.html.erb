@@ -5,23 +5,23 @@
      <div class="col-12">
       <div class="form-row">
         <div class="form-group col-12">
-          <%= f.label :支払方法 %></br>
-          <%= f.radio_button :payment_method, 0 %>クレジットカード
+          <%= f.label :支払方法 %><br />
+          <%= f.radio_button :payment_method, 0,{:checked => true} %>クレジットカード<br />
           <%= f.radio_button :payment_method, 1 %>銀行振込
         </div>
         <div class="form-group col-12">
           <%= f.label :お届け先 %></br>
-          <%= radio_button_tag :delivery, 0 %>ご自身の住所
+          <%= radio_button_tag :delivery, 0,{:checked => true}%>ご自身の住所
           〒<%= current_customer.postal_code %>
             <%= current_customer.address %>
           <%= current_customer.last_name + current_customer.first_name %>
         </div>
         <div class="form-group col-12">
-          <%= radio_button_tag :delivery, 1 %>登録済住所から選択</br>
+          <%= radio_button_tag :delivery, 1 %>登録済住所から選択<br />
           <%= collection_select(:address, :id, @addresses, :id, :address ) %>
         </div>
         <div class="form-group col-xs-12 col-md-10">
-          <%= radio_button_tag :delivery, 2 %>新しいお届け先</br>
+          <%= radio_button_tag :delivery, 2 %>新しいお届け先<br />
           <%= f.label :郵便番号 %>(ハイフンなし)
           <%= f.text_field :postal_code,class: :"form-control",placeholder:"1234567" %>
         </div>
