@@ -11,4 +11,6 @@ class Public::ItemsController < Public::ApplicationController
     @reviews = @item.reviews.all
     @review = Review.new
   end
+
+
 end

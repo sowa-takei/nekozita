@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
-   @order = Order.new
-   @addresses = current_customer.addresses
+    @order = Order.new
+    @addresses = current_customer.addresses
   end
 
   def verification
@@ -47,11 +47,11 @@ class Public::OrdersController < ApplicationController
     # ↑order_detailに保存する
     current_customer.cart_items.destroy_all
     # ↑orderとorder_detailに保存したので、カート内商品は削除。
-     redirect_to orders_completion_path
+    redirect_to orders_completion_path
   end
 
   def index
-    @orders = current_customer.orders
+   @orders = current_customer.orders
   end
 
   def show
