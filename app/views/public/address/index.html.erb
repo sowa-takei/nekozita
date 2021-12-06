@@ -4,7 +4,7 @@
    <% if @address.errors.any? %>
     <%= @address.errors.count %>件のエラーが発生しました</br>
     <% @address.errors.full_messages.each do |message| %>
-     <%= message %></br>
+     <%= message %><br />
     <% end %>
    <% end %>
   </div>
@@ -32,7 +32,7 @@
      <% end %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-xs-12 col-md-12">
       <table class="table table-bordered">

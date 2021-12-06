@@ -17,9 +17,9 @@
        <% @items.last(4).each do |item| %>
        <%# @search_items.last(4) each do |item| %>
        <div class="mx-auto">
-        <%= attachment_image_tag item, :image, size: "100x100" %></br>
+        <%= attachment_image_tag item, :image, size: "100x100" %><br />
         <div class="row mt-3">
-         <%= item.name %></br>
+         <%= item.name %><br />
         </div>
         <div class="row mt-1">
          ￥<%= item.price %>

@@ -27,12 +27,12 @@
         <%= form_with model: @cart_item,url:cart_items_path(@cart_item), local: true do |f| %>
           <div class="form-row">
            <div class="form-group col-xs-12 col-md-12">
-            <%= f.label :name,"商品名",style: "background: linear-gradient(transparent 70%, #a7d6ff 70%);" %></br>
+            <%= f.label :name,"商品名",style: "background: linear-gradient(transparent 70%, #a7d6ff 70%);" %><br />
             <%= @item.name %>
             <%= f.hidden_field :item_id, :value => @item.id %>
            </div>
            <div class="form-group col-xs-12 col-md-12">
-            <%= f.label :name,"商品説明",style: "background: linear-gradient(transparent 70%, #a7d6ff 70%);" %></br>
+            <%= f.label :name,"商品説明",style: "background: linear-gradient(transparent 70%, #a7d6ff 70%);" %><br />
             <%= @item.introduction %>
            </div>
            <div class="form-group col-xs-12 col-md-8">
@@ -55,9 +55,9 @@
      <h4 class="font-weight-bolder">レビューを書く</h4>
       <div class="errors">
        <% if @review.errors.any? %>
-        <%= @review.errors.count %>件のエラーが発生しました</br>
+        <%= @review.errors.count %>件のエラーが発生しました<br />
         <% @review.errors.full_messages.each do |message| %>
-         <%= message %></br>
+         <%= message %><br />
         <% end %>
        <% end %>
       </div>
