@@ -217,6 +217,7 @@ ja:
     models:
     address: 住所
     review: 評価
+    item: 商品
     attributes:
       address:
         name: 宛名
@@ -225,6 +226,12 @@ ja:
       review:
         id: ID
         rate: 評価
+      item:
+        name: 商品名
+        genre: ジャンル
+        price: 税込価格
+        introduction: 商品説明
+
     # models:
     # review: 評価
     # attributes:
