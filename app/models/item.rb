@@ -9,7 +9,9 @@ class Item < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
-  
+  validates :price, presence: true
+  validates :name, presence: true
+  validates :introduction, presence: true
 
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?
